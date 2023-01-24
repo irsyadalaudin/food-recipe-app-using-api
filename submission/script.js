@@ -6,6 +6,7 @@ const recipeCloseBtn = document.getElementById('recipe-close-btn');             
 
 /* EVENT LISTENERS */
 searchBtn.addEventListener('click', getMealList);
+mealList.addEventListener('click', getMealRecipe)
 
 /* GET MEAL LIST THAT MATCHES WITH THE INGREDIENTS */
 function getMealList() {
@@ -35,4 +36,17 @@ function getMealList() {
         }
         mealList.innerHTML = html;
     });
+}
+
+/* GET RECIPE OF THE MEAL */
+function getMealRecipe(e) {                             // e ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
+    e.preventDefault();
+    if(e.mealRecipe.classList.contains('recipe-btn')) {     // "recipe-btn" DI K0LOM 27
+        let mealItem = e.mealRecipe.parentElement;
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+        .then(response => response.json())
+        .then(data => mealRecipeModal(data.meals))
+        // console.log(mealItem);   // UNTUK MEMUNCULKAN 
+    }
+    // console.log(e.mealRecipe);
 }
