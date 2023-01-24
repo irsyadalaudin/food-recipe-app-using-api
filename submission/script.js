@@ -4,7 +4,7 @@ const mealDetailsContent = document.getElementsByClassName('meal-details-content
 const recipeCloseBtn = document.getElementById('recipe-close-btn');                     // DI HTML id    KOLOM 72
 
 
-/* EVENT LISTENER */
+/* EVENT LISTENERS */
 searchBtn.addEventListener('click', getMealList);
 
 /* GET MEAL LIST THAT MATCHES WITH THE INGREDIENTS */
