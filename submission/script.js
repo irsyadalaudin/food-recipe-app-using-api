@@ -8,6 +8,7 @@ const recipeCloseBtn = document.getElementById('recipe-close-btn');             
 searchBtn.addEventListener('click', getMealList);
 mealList.addEventListener('click', getMealRecipe)
 
+
 /* GET MEAL LIST THAT MATCHES WITH THE INGREDIENTS */
 function getMealList() {
     let searchInputTxt = document.getElementById('search-input').value.trim();
@@ -37,6 +38,7 @@ function getMealList() {
         mealList.innerHTML = html;
     });
 }
+
 
 /* GET RECIPE OF THE MEAL */
 function getMealRecipe(e) {                             // e ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
