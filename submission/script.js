@@ -47,8 +47,11 @@ function getMealRecipe(e) {                             // e (event) ITU VARIABL
         let mealItem = e.target.parentElement.parentElement;
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
+        .then(data => mealRecipeModal(data.meals))
+        /*
         .then(data => {
-        // console.log(data);                              // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
-        })
+            console.log(data);                          // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
+            })                                          // INI STEP SEBELUM YANG ADA DI KOLOM 50
+        */
     }
 }
