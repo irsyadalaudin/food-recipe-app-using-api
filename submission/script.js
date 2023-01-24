@@ -41,17 +41,17 @@ function getMealList() {
 
 
 /* GET RECIPE OF THE MEAL */
-function getMealRecipe(e) {                             // e (event) ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
+function getMealRecipe(e) {                                     // e (event) ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
     e.preventDefault();
-    if (e.target.classList.contains('recipe-btn')) {    // "recipe-btn" DI K0LOM 27
-        let mealItem = e.target.parentElement.parentElement;
+    if (e.target.classList.contains('recipe-btn')) {            // "recipe-btn" DI K0LOM 27
+        let mealItem = e.target.parentElement.parentElement;    // e.target UNTUK MENGAKSES VALUE target    // form ITU ADA input nya, DAN input nya DAPAT DIAKSES DENGAN e.event.target
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
         .then(data => mealRecipeModal(data.meals))
         /*
         .then(data => {
-            console.log(data);                          // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
-            })                                          // INI STEP SEBELUM YANG ADA DI KOLOM 50
+            console.log(data);                                  // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
+            })                                                  // INI STEP SEBELUM YANG ADA DI KOLOM 50
         */
     }
 }
