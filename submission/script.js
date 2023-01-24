@@ -59,5 +59,20 @@ function getMealRecipe(e) {                                     // e (event) ITU
 /* CREATE A MODAL */
 function mealRecipeModal(meal) {
     console.log(meal);
-    meal = meal[0]
+    meal = meal[0];
+    let html = `
+    <h2 class="recipe-title">Meals Name Here</h2>
+    <p class="recipe-category">Category</p>
+    <div class="recipe-instruct">
+        <h3>Instructions:</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error necessitatibus suscipit iusto incidunt architecto dolore obcaecati deleniti fuga, aliquid distinctio asperiores dignissimos dolorum harum iure a, qui accusamus! Ratione, at!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, cupiditate!</p>
+    </div>
+    <div class="recipe-meal-img">
+        <img src="food.jpg" alt="">
+    </div>
+    <div class="recipe-link">
+        <a href="#" target="_blank">Watch Video</a>
+    </div>
+    `;
 }
