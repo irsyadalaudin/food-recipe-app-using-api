@@ -43,12 +43,12 @@ function getMealList() {
 /* GET RECIPE OF THE MEAL */
 function getMealRecipe(e) {                             // e ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
     e.preventDefault();
-    if (e.target.classList.contains('recipe-btn')) {     // "recipe-btn" DI K0LOM 27
+    if (e.target.classList.contains('recipe-btn')) {    // "recipe-btn" DI K0LOM 27
         let mealItem = e.target.parentElement.parentElement;
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
         .then(data => {
-        console.log(data);   // UNTUK MEMUNCULKAN 
+        console.log(data);                              // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
         })
     }
 }
