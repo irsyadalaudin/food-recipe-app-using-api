@@ -48,7 +48,7 @@ function getMealRecipe(e) {                             // e (event) ITU VARIABL
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
         .then(data => {
-        console.log(data);                              // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
+        // console.log(data);                              // UNTUK MEMUNCULKAN (e.target.classList.contains('recipe-btn')) DI KOLOM 45
         })
     }
 }
