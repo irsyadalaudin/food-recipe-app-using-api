@@ -1,6 +1,6 @@
 const searchBtn = document.getElementById('search-btn');                                // DI HTML id    KOLOM 23-24
 const mealList = document.getElementById('meal');                                       // DI HTML id    KOLOM 33
-const mealDetailsContent = document.getElementsByClassName('meal-details-content');     // DI HTML class KOLOM 77
+const mealDetailsContent = document.querySelector('.meal-details-content');     // DI HTML class KOLOM 77
 const recipeCloseBtn = document.getElementById('recipe-close-btn');                     // DI HTML id    KOLOM 72
 
 
@@ -43,7 +43,7 @@ function getMealList() {
 /* GET RECIPE OF THE MEAL */
 function getMealRecipe(e) {                                     // e (event) ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
     e.preventDefault();
-    if (e.target.classList.contains('recipe-btn')) {            // "recipe-btn" DI K0LOM 27
+    if (e.target.classList.contains('recipe-btn')) {            // "recipe-btn" DI K0LOM 29
         let mealItem = e.target.parentElement.parentElement;    // e.target UNTUK MENGAKSES VALUE target    // form ITU ADA input nya, DAN input nya DAPAT DIAKSES DENGAN e.event.target
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
@@ -61,18 +61,19 @@ function mealRecipeModal(meal) {
     console.log(meal);
     meal = meal[0];
     let html = `
-    <h2 class="recipe-title">Meals Name Here</h2>
-    <p class="recipe-category">Category</p>
+    <h2 class="recipe-title">${meal.strMeal}</h2>
+    <p class="recipe-category">${meal.strCategory}</p>
     <div class="recipe-instruct">
         <h3>Instructions:</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error necessitatibus suscipit iusto incidunt architecto dolore obcaecati deleniti fuga, aliquid distinctio asperiores dignissimos dolorum harum iure a, qui accusamus! Ratione, at!</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, cupiditate!</p>
+        <p>${meal.strInstructions}</p>
     </div>
     <div class="recipe-meal-img">
-        <img src="food.jpg" alt="">
+        <img src="${meal.strThumb}" alt="">
     </div>
     <div class="recipe-link">
-        <a href="#" target="_blank">Watch Video</a>
+        <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
     </div>
     `;
+    mealDetailsContent.innerHTML = html;
+    mealDetailsContent.parentElement.classList.add('showRecipe');
 }
