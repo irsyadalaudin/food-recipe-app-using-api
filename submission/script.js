@@ -55,3 +55,9 @@ function getMealRecipe(e) {                                     // e (event) ITU
         */
     }
 }
+
+/* CREATE A MODAL */
+function mealRecipeModal(meal) {
+    console.log(meal);
+    meal = meal[0]
+}
