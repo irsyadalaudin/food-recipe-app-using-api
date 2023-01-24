@@ -1,5 +1,5 @@
 const searchBtn = document.getElementById('search-btn');                                // DI HTML id    KOLOM 23-24
-const mealList = document.getElementById('meal');                                       // DI HTML id    KOLOM 
+const mealList = document.getElementById('meal');                                       // DI HTML id    KOLOM 33
 const mealDetailsContent = document.getElementsByClassName('meal-details-content');     // DI HTML class KOLOM 77
 const recipeCloseBtn = document.getElementById('recipe-close-btn');                     // DI HTML id    KOLOM 72
 
