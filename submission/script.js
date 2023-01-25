@@ -7,6 +7,9 @@ const recipeCloseBtn = document.getElementById('recipe-close-btn');             
 /* EVENT LISTENERS */
 searchBtn.addEventListener('click', getMealList);
 mealList.addEventListener('click', getMealRecipe)
+recipeCloseBtn.addEventListener('click', () => {
+    mealDetailsContent.parentElement.classList.remove('showRecipe');
+})
 
 
 /* GET MEAL LIST THAT MATCHES WITH THE INGREDIENTS */
@@ -30,7 +33,8 @@ function getMealList() {
                     </div>
                 </div>
                 `;
-            })
+            });
+            mealList.classList.remove('notFound')
         } else {
             html = "Sorry, we didn't find any meal!"
             mealList.classList.add('notFound');
@@ -44,7 +48,7 @@ function getMealList() {
 function getMealRecipe(e) {                                     // e (event) ITU VARIABLE, VARIABLE ITU ARGUMEN,  ARGUMEN DISINI BERUPA OBJECT.   // e ITU OBJECT, DIDALAMNYA ADA METHOD, METHOD ITU FUNCTION YANG ADA DI DALAM OBJECT, METHOD NYA preventDefault()
     e.preventDefault();
     if (e.target.classList.contains('recipe-btn')) {            // "recipe-btn" DI K0LOM 29
-        let mealItem = e.target.parentElement.parentElement;    // e.target UNTUK MENGAKSES VALUE target    // form ITU ADA input nya, DAN input nya DAPAT DIAKSES DENGAN e.event.target
+        let mealItem = e.target.parentElement.parentElement;    // e.target UNTUK MENGAKSES VALUE target    // form ITU ADA input nya, DAN input nya DAPAT DIAKSES DENGAN e.event.target    // parentElement NYA ADA, KARENA DIA NAIK 2 KALI, JADI JATOH NYA KAKEK parentElement
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response => response.json())
         .then(data => mealRecipeModal(data.meals))
@@ -68,7 +72,7 @@ function mealRecipeModal(meal) {
         <p>${meal.strInstructions}</p>
     </div>
     <div class="recipe-meal-img">
-        <img src="${meal.strThumb}" alt="">
+        <img src="${meal.strMealThumb}" alt="">
     </div>
     <div class="recipe-link">
         <a href="${meal.strYoutube}" target="_blank">Watch Video</a>

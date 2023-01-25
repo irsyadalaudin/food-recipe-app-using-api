@@ -229,6 +229,10 @@ body {
     opacity: 0.9;  
 }
 
+.recipe-close-btn:hover{
+    cursor: pointer;
+}
+
 .recipe-title{
     letter-spacing: 1px;
     padding-bottom: 1rem;
